@@ -3,6 +3,12 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = function(options) {
     return {
-        entry: path.resolve("src")
+        entry: {
+            path: path.resolve("src/index.ts"),
+        },
+        output: {
+            path: path.resolve(__dirname, "dist"),
+            publicPath: "/"
+        }
     }
 }
