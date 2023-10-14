@@ -4,7 +4,8 @@
   "description": "react_scaffold",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --config ./webpack/webpack.prod.js",
+    "dev": "webpack --config ./webpack/webpack.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/leonopteryx130/react_scaffold#readme",
   "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0",
     "html-webpack-plugin": "^5.5.3",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
