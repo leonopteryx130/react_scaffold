@@ -19,6 +19,9 @@
   },
   "homepage": "https://github.com/leonopteryx130/react_scaffold#readme",
   "devDependencies": {
+    "@babel/core": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
+    "@babel/preset-react": "^7.22.15",
     "clean-webpack-plugin": "^4.0.0",
     "html-webpack-plugin": "^5.5.3",
     "webpack": "^5.88.2",
