@@ -4,7 +4,7 @@
   "description": "react_scaffold",
   "scripts": {
     "build": "webpack --config ./webpack/webpack.prod.js",
-    "dev": "webpack --config ./webpack/webpack.dev.js",
+    "dev": "webpack-dev-server --config ./webpack/webpack.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,6 +26,7 @@
     "html-webpack-plugin": "^5.5.3",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
     "webpack-merge": "^5.9.0"
   },
   "dependencies": {
