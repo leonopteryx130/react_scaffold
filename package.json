@@ -1,0 +1,23 @@
+{
+  "name": "react_scaffold",
+  "version": "1.0.0",
+  "description": "react_scaffold",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leonopteryx130/react_scaffold.git"
+  },
+  "author": "wyq",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leonopteryx130/react_scaffold/issues"
+  },
+  "homepage": "https://github.com/leonopteryx130/react_scaffold#readme",
+  "devDependencies": {
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
