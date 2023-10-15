@@ -4,6 +4,9 @@ const path = require('path')
 
 module.exports = merge(commonConfig, {
     mode: "development",
+    output: {
+        publicPath: "/"
+    },
     devServer: {
         compress: true, // 启动Gzip
         port: 3000, // 端口

@@ -8,7 +8,6 @@ module.exports = {
     output: {
         filename: 'static/js/index.js',
         path: path.resolve(process.cwd(), "dist"),
-        publicPath: "/"
     },
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss'],
