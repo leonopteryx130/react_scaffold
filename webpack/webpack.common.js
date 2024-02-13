@@ -29,10 +29,21 @@ module.exports = {
         },{
             test: /\.(s[ac]ss|css)$/i,
             use: [
-                // 将 JS 字符串生成为 style 节点
+                // 将 JS 字符串生成为 style 节点s
                 'style-loader',
                 // 将 CSS 转化成 CommonJS 模块
-                'css-loader',
+                {
+                    loader: 'css-loader',
+                    // 启动css module并配置
+                    options: {
+                        importLoaders: 1,
+                        modules: {
+                            //auto: (resourcePath) => resourcePath.endsWith('.css') || resourcePath.endsWith('.less') || resourcePath.endsWith('.scss'),  // 匹配.css文件来进行css模块化。
+                            auto: /\.(s[ac]ss|css)$/i,
+                            localIdentName: '[local]_[hash:base64:10]', //在css后边添加10位的hash
+                        },
+                    },
+                },
                 // 将 Sass 编译成 CSS
                 'sass-loader',
             ],
