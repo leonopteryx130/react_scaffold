@@ -50,7 +50,22 @@ module.exports = {
                     options: {
                         api: 'modern' // 或者 'modern-compiler'
                     }
-                }
+                },
+                // 添加postcss-loader，用于处理css的px转rem
+                {
+                    loader: 'postcss-loader',
+                    options: {
+                        postcssOptions: {
+                            plugins: [
+                                // 添加postcss-pxtorem插件,用于将px转rem
+                                require('postcss-pxtorem')({
+                                    rootValue: 16, // 根据设计稿的基准值设置
+                                    propList: ['*'], // 可以转换的属性，* 表示所有
+                                }),
+                            ],
+                        },
+                    },
+                },
             ],
         },]
     },
