@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
-import { rootFontSize, figmaWidth } from './utils/config';
+import { rootFontSize, figmaWidth } from '@/utils/config';
+import HomeSvg from '@/assets/icons/home.svg';
 import style from './App.scss'
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <div className={style.App}>
+      <HomeSvg width="100px" height="100px" />
       测试APP
     </div>
   );

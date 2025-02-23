@@ -11,7 +11,10 @@ module.exports = {
     },
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss'],
-        modules: ['src', 'node_modules'] // Assuming that your files are inside the src dir
+        modules: ['src', 'node_modules'], // Assuming that your files are inside the src dir
+        alias: {
+            '@': path.resolve(process.cwd(), 'src')
+        }
     },
     module: {
         rules: [{
@@ -69,7 +72,13 @@ module.exports = {
             ],
         }, {
             test: /\.svg$/,
-            use: '@svgr/webpack',
+            use: [{
+                loader: '@svgr/webpack',
+                options: {
+                    // 禁用svg优化
+                    svgo: false
+                },
+            }],
         }]
     },
     plugins:[
