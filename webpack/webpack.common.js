@@ -80,6 +80,9 @@ module.exports = {
                     svgo: false
                 },
             }],
+        }, {
+            test: /\.(jpe?g|png|gif)/,
+            use: ['file-loader'],
         }]
     },
     plugins:[
