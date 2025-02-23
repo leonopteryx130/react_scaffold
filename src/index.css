@@ -1,0 +1,5 @@
+html, body {
+  /* 去掉body上的默认margin */
+  margin: 0;
+  padding: 0;
+}
