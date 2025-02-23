@@ -73,6 +73,7 @@ module.exports = {
         }, {
             test: /\.svg$/,
             use: [{
+                // 将svg转化为react组件
                 loader: '@svgr/webpack',
                 options: {
                     // 禁用svg优化
