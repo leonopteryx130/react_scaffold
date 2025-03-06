@@ -1,5 +1,4 @@
 import globals from "globals";
-import pluginJs from "@eslint/js";
 import pluginReact from "eslint-plugin-react";
 
 
@@ -7,6 +6,16 @@ import pluginReact from "eslint-plugin-react";
 export default [
   {files: ["**/*.{js,mjs,cjs,jsx}"]},
   {languageOptions: { globals: globals.browser }},
-  pluginJs.configs.recommended,
+  {
+    ignores: [
+      ".webpack/",
+      "webpack/",
+      "node_modules/"
+    ],
+    rules: {
+      // 在这里添加您自定义的规则
+      "no-unused-vars": "error",
+    },
+  },
   pluginReact.configs.flat.recommended,
 ];
