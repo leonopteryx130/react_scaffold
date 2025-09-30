@@ -18,6 +18,6 @@ export const initPageLayout = () => {
   const scaleHeight = Math.max(document.documentElement.clientHeight, 768) / height ;
   const scale = Math.min(scaleWidth, scaleHeight); // 取最小的缩放比例
   document.documentElement.style.fontSize = rootFontSize * scale + 'px'; // 1rem = 16px
-  document.documentElement.style.minWidth = width + 'px'; // 设置最小宽度为设计稿宽度
-  document.documentElement.style.minHeight = height + 'px'; // 移动端页面高度
+  //document.documentElement.style.minWidth = width + 'px'; // 设置最小宽度为设计稿宽度
+  //document.documentElement.style.minHeight = height + 'px'; // 移动端页面高度
 }
