@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import HomeSvg from '@/assets/icons/home.svg';
+// 使用 public 下的静态资源，不再通过模块导入 svg
 import { initPageLayout } from '@/utils/lifeCircle';
 import style from './App.scss'
 
@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div className={style.App}>
-      <HomeSvg width="100px" height="100px" />
+      <img src="/assets/icons/home.svg" alt="home" width="100" height="100" />
       测试APP
     </div>
   );

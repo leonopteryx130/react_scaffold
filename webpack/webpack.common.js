@@ -39,11 +39,18 @@ module.exports = {
                     loader: 'css-loader',
                     // 启动css module并配置
                     options: {
-                        importLoaders: 1,
+                        importLoaders: 2, // postcss-loader + sass-loader
                         modules: {
-                            //auto: (resourcePath) => resourcePath.endsWith('.css') || resourcePath.endsWith('.less') || resourcePath.endsWith('.scss'),  // 匹配.css文件来进行css模块化。
                             auto: /\.(s[ac]ss|css)$/i,
-                            localIdentName: '[local]_[hash:base64:10]', //在css后边添加10位的hash
+                            localIdentName: '[local]_[hash:base64:10]',
+                        },
+                    },
+                },
+                {
+                    loader: 'postcss-loader',
+                    options: {
+                        postcssOptions: {
+                            config: path.resolve(__dirname, '../postcss.config.js'),
                         },
                     },
                 },
@@ -51,39 +58,17 @@ module.exports = {
                 {
                     loader: 'sass-loader',
                     options: {
-                        api: 'modern' // 或者 'modern-compiler'
+                        implementation: require('sass-embedded'),
                     }
                 },
-                // 添加postcss-loader，用于处理css的px转rem
-                {
-                    loader: 'postcss-loader',
-                    options: {
-                        postcssOptions: {
-                            plugins: [
-                                // 添加postcss-pxtorem插件,用于将px转rem
-                                require('postcss-pxtorem')({
-                                    rootValue: 16, // 根据设计稿的基准值设置
-                                    propList: ['*'], // 可以转换的属性，* 表示所有
-                                }),
-                            ],
-                        },
-                    },
-                },
             ],
-        }, {
-            test: /\.svg$/,
-            use: [{
-                // 将svg转化为react组件
-                loader: '@svgr/webpack',
-                options: {
-                    // 禁用svg优化
-                    svgo: false
-                },
-            }],
-        }, {
-            test: /\.(jpe?g|png|gif)/,
-            use: ['file-loader'],
-        }]
+        },{
+            test: /\.(png|jpe?g|gif|svg)$/i,
+            type: 'asset/resource',
+            generator: {
+                filename: 'static/images/[name][ext]'
+            }
+        },]
     },
     plugins:[
         //webpack-dev-serve开启的时候也需要配置，因此这个插件在开发和打包时候都需要用到

@@ -1,0 +1,119 @@
+/*
+  全局工具类（Tailwind 风格），通过 :global 保证不被 CSS Modules 隔离。
+  可按需补充。命名尽量与 Tailwind 接近，降低迁移成本。
+*/
+
+:global {
+  /* 布局 */
+  .flex { display: flex; }
+  .inline-flex { display: inline-flex; }
+  .block { display: block; }
+  .hidden { display: none; }
+
+  /* 主轴/交叉轴对齐 */
+  .items-start { align-items: flex-start; }
+  .items-center { align-items: center; }
+  .items-end { align-items: flex-end; }
+  .justify-start { justify-content: flex-start; }
+  .justify-center { justify-content: center; }
+  .justify-between { justify-content: space-between; }
+  .justify-end { justify-content: flex-end; }
+  .gap-8px { gap: 8px; }
+  .gap-12px { gap: 12px; }
+  .gap-16px { gap: 16px; }
+  .gap-24px { gap: 24px; }
+
+  /* 宽度和高度 - 使用 SCSS 循环生成常用尺寸 */
+  @for $i from 1 through 1000 {
+    .h-#{$i}px { height: #{$i}px; }
+    .w-#{$i}px { width: #{$i}px; }
+  }
+  
+  /* 常用高度 */
+  .h-auto { height: auto; }
+  .h-full { height: 100%; }
+  .h-screen { height: 100vh; }
+  .h-min { height: min-content; }
+  .h-max { height: max-content; }
+  
+  /* 常用宽度 */
+  .w-auto { width: auto; }
+  .w-full { width: 100%; }
+  .w-screen { width: 100vw; }
+  .w-min { width: min-content; }
+  .w-max { width: max-content; }
+
+  /* 间距（使用 SCSS 循环生成 1-100px） */
+  @for $i from 1 through 100 {
+    .p-#{$i}px { padding: #{$i}px; }
+    .px-#{$i}px { padding-left: #{$i}px; padding-right: #{$i}px; }
+    .py-#{$i}px { padding-top: #{$i}px; padding-bottom: #{$i}px; }
+    .pt-#{$i}px { padding-top: #{$i}px; }
+    .pr-#{$i}px { padding-right: #{$i}px; }
+    .pb-#{$i}px { padding-bottom: #{$i}px; }
+    .pl-#{$i}px { padding-left: #{$i}px; }
+    
+    .m-#{$i}px { margin: #{$i}px; }
+    .mx-#{$i}px { margin-left: #{$i}px; margin-right: #{$i}px; }
+    .my-#{$i}px { margin-top: #{$i}px; margin-bottom: #{$i}px; }
+    .mt-#{$i}px { margin-top: #{$i}px; }
+    .mr-#{$i}px { margin-right: #{$i}px; }
+    .mb-#{$i}px { margin-bottom: #{$i}px; }
+    .ml-#{$i}px { margin-left: #{$i}px; }
+    
+    .gap-#{$i}px { gap: #{$i}px; }
+  }
+  
+  /* 特殊间距 */
+  .m-auto { margin: 0 auto; }
+  .min-h-40vh { min-height: 40vh; }
+
+  /* 排版 */
+  .text-center { text-align: center; }
+  .text-left { text-align: left; }
+  .text-right { text-align: right; }
+  .font-bold { font-weight: 700; }
+  .font-medium { font-weight: 500; }
+  .font-normal { font-weight: 400; }
+  
+  /* 字体大小（使用 SCSS 循环生成 8-100px） */
+  @for $i from 8 through 100 {
+    .text-#{$i}px { font-size: #{$i}px; }
+  }
+  
+  /* 行高 */
+  .leading-1-2 { line-height: 1.2; }
+  .leading-1-5 { line-height: 1.5; }
+  
+  /* 颜色 */
+  .text-white { color: #fff; }
+  .text-gray-100 { color: #f3f4f6; }
+  .text-gray-200 { color: #e5e7eb; }
+  .text-gray-600 { color: #4b5563; }
+  .text-gray-700 { color: #374151; }
+  .text-gray-800 { color: #1f2937; }
+  .text-gray-900 { color: #111827; }
+
+  /* 背景、圆角 */
+  .bg-white { background-color: #ffffff; }
+  .bg-gray-50 { background-color: #f9fafb; }
+  .bg-gray-100 { background-color: #f3f4f6; }
+  .bg-gray-200 { background-color: #e5e7eb; }
+  .bg-gray-900 { background-color: #111827; }
+  .bg-primary { background-color: #2f80ed; }
+  
+  /* 圆角（使用 SCSS 循环生成 0-50px） */
+  @for $i from 0 through 50 {
+    .rounded-#{$i}px { border-radius: #{$i}px; }
+  }
+  
+  /* 常用圆角 */
+  .rounded { border-radius: 0.25rem; }
+  .rounded-md { border-radius: 0.375rem; }
+  .rounded-lg { border-radius: 0.5rem; }
+
+  /* 尺寸 */
+  .w-full { width: 100%; }
+  .min-h-screen { min-height: 100vh; }
+  .max-w-1200px { max-width: 1200px; }
+}
