@@ -1,0 +1,67 @@
+/*
+  颜色系统 - 统一管理所有颜色
+  支持动态生成各种颜色相关的CSS类
+*/
+
+:global {
+  /* 动态生成自定义十六进制颜色类 */
+  @mixin generate-color-classes($colors) {
+    @each $name, $value in $colors {
+      .text-#{$name} { color: #{$value}; }
+      .bg-#{$name} { background-color: #{$value}; }
+      .border-#{$name} { border-color: #{$value}; }
+      .outline-#{$name} { outline-color: #{$value}; }
+    }
+  }
+  
+  /* 项目自定义颜色定义 */
+  $custom-colors: (
+    // 主色调
+    '1B2559': #1B2559,  // 深色文字
+    'F5F7FB': #F5F7FB,  // 浅蓝灰背景
+    'F4F7FE': #F4F7FE,  // 搜索框背景
+    'F3F6FD': #F3F6FD,  // 原搜索框背景
+    'E7ECFA': #E7ECFA,  // 头像背景
+    '6C7BD9': #6C7BD9,  // 紫色圆点
+    '121127': #121127,  // 深色文字/背景
+    'EFF3FF': #EFF3FF,  // 图标背景
+    'F1E9FF': #F1E9FF,  // PRO标签背景
+    'FFFFFF': #FFFFFF,  // 纯白
+    '8A94A6': #8A94A6,  // 灰色文字
+    '6B4DE6': #6B4DE6,  // 紫色文字
+    
+    // 扩展颜色（可根据需要添加）
+    '2DB4E8': #2DB4E8,  // 蓝色
+    '4473D3': #4473D3,  // 深蓝色
+    '01C0E4': #01C0E4,  // 青色
+    'D5DBE8': #D5DBE8,  // 浅灰色
+    'F0F2F7': #F0F2F7,  // 边框色
+    'EEF0F5': #EEF0F5,  // 浅边框
+    // 灰度映射（兼容原 text/bg/border-gray-* 用法）
+    '111827': #111827,  // gray-900
+    '1F2937': #1F2937,  // gray-800
+    '4B5563': #4B5563,  // gray-600
+    'E5E7EB': #E5E7EB,  // gray-200
+    'F3F4F6': #F3F4F6,  // gray-100
+    'F9FAFB': #F9FAFB,  // gray-50
+  );
+  
+  /* 生成所有颜色类 */
+  @include generate-color-classes($custom-colors);
+  
+  /* 特殊颜色类 */
+  .text-current { color: currentColor; }
+  .bg-current { background-color: currentColor; }
+  .border-current { border-color: currentColor; }
+  
+  /* 透明度变体 */
+  @each $name, $value in $custom-colors {
+    .text-#{$name}-50 { color: rgba($value, 0.5); }
+    .bg-#{$name}-50 { background-color: rgba($value, 0.5); }
+    .border-#{$name}-50 { border-color: rgba($value, 0.5); }
+    
+    .text-#{$name}-25 { color: rgba($value, 0.25); }
+    .bg-#{$name}-25 { background-color: rgba($value, 0.25); }
+    .border-#{$name}-25 { border-color: rgba($value, 0.25); }
+  }
+}
