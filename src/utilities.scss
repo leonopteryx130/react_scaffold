@@ -124,28 +124,14 @@
     -moz-osx-font-smoothing: auto;
   }
   
-  /* 颜色 */
-  .text-white { color: #fff; }
-  .text-gray-100 { color: #f3f4f6; }
-  .text-gray-200 { color: #e5e7eb; }
-  .text-gray-600 { color: #4b5563; }
-  .text-gray-700 { color: #374151; }
-  .text-gray-800 { color: #1f2937; }
-  .text-gray-900 { color: #111827; }
-  
   /* 背景、圆角 */
   .bg-white { background-color: #ffffff; }
   .bg-transparent { background-color: transparent; }
-  .bg-gray-50 { background-color: #f9fafb; }
-  .bg-gray-100 { background-color: #f3f4f6; }
-  .bg-gray-200 { background-color: #e5e7eb; }
-  .bg-gray-900 { background-color: #111827; }
-  .bg-primary { background-color: #2f80ed; }
   
   
   
   /* 圆角（使用 SCSS 循环生成 0-50px） */
-  @for $i from 0 through 50 {
+  @for $i from 0 through 500 {
     .rounded-#{$i}px { border-radius: #{$i}px; }
   }
   

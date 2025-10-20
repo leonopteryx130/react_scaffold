@@ -27,6 +27,8 @@
     'EFF3FF': #EFF3FF,  // 图标背景
     'F1E9FF': #F1E9FF,  // PRO标签背景
     'FFFFFF': #FFFFFF,  // 纯白
+    'F5F5F5': #F5F5F5,  // 浅灰背景
+    '000000': #000000,  // 纯黑
     '8A94A6': #8A94A6,  // 灰色文字
     '6B4DE6': #6B4DE6,  // 紫色文字
     
@@ -56,12 +58,10 @@
   
   /* 透明度变体 */
   @each $name, $value in $custom-colors {
-    .text-#{$name}-50 { color: rgba($value, 0.5); }
-    .bg-#{$name}-50 { background-color: rgba($value, 0.5); }
-    .border-#{$name}-50 { border-color: rgba($value, 0.5); }
-    
-    .text-#{$name}-25 { color: rgba($value, 0.25); }
-    .bg-#{$name}-25 { background-color: rgba($value, 0.25); }
-    .border-#{$name}-25 { border-color: rgba($value, 0.25); }
+    @for $i from 1 through 100 {
+      .text-#{$name}-#{$i} { color: rgba($value, $i / 100); }
+      .bg-#{$name}-#{$i} { background-color: rgba($value, $i / 100); }
+      .border-#{$name}-#{$i} { border-color: rgba($value, $i / 100); }
+    }
   }
 }
